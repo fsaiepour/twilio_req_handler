@@ -19,9 +19,11 @@ module RequestHandler
 
   class StatusHandler
     def self.status_changed(call_status,called)
-      puts 'status changed...'
+      puts "status changed..."
       #binding.pry
       RabbitFeed::Producer.publish_event 'status_changed', {'call_status' => "#{call_status}" , 'called' => "#{called}"}
+
+
     end
   end
 

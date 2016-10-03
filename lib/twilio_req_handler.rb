@@ -14,7 +14,7 @@ class WebApp <Sinatra::Base
   #Delegate the call leg status change to another process
   post '/status_changed' do
     #binding.pry
-    RequestHandler::StatusHandler.status_changed(params["CallStatus"],params["Called"])
+    RequestHandler::StatusHandler.status_changed params["CallStatus"],params["Called"]
     "OK"
   end
 
